@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Android Basic in Kotlin"
 include ':app00_sample'
+
+include ':app01_happy_birthday'
