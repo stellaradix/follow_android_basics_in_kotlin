@@ -46,7 +46,7 @@ dependencies {
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
-	androidTestImplementation "androidx.test:core-ktx:1.5.0"
+	androidTestImplementation "androidx.test:core-ktx:$x_test_core"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
 }
