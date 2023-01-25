@@ -3,6 +3,7 @@ plugins {
 	id 'com.android.application' version '7.4.0' apply false
 	id 'com.android.library' version '7.4.0' apply false
 	id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+	id 'androidx.navigation.safeargs.kotlin' version '2.5.3' apply false
 }
 
 ext {
@@ -22,6 +23,9 @@ ext {
 	x_appcompat = "1.6.0"
 	x_constraintlayout = "2.1.4"
 	x_fragment = "1.6.0-alpha04"
+
+	// androidx - Navigation
+	x_navigation = "2.5.3"
 
 	// Test
 	junit_junit = "4.13.2"
