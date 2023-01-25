@@ -11,20 +11,59 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
-		<!-- TODO: Note that this list item will be used in a grid view which requires a
+		<!-- Note that this list item will be used in a grid view which requires a
 			different layout because the list will have two columns of cards.
 			This means that the information within the card must stack the vertically
 			since there is less room in terms of width. -->
 
-		<!-- TODO: Create an ImageView resource for the image of the dog.
+		<!-- Create an ImageView resource for the image of the dog.
 			The height should be 194dp
 			The width should match the with of the card
 			The scaleType should be set to centerCrop -->
 
-		<!-- TODO: Create a TextView for each of the following:
+		<ImageView
+			android:id="@+id/item_image"
+			android:layout_width="match_parent"
+			android:layout_height="194dp"
+			android:scaleType="centerCrop"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<!-- Create a TextView for each of the following:
 			The dog's name
 			The dog's age
 			The dog's hobbies -->
+
+		<TextView
+			android:id="@+id/item_name"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/item_image" />
+
+		<TextView
+			android:id="@+id/item_age"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/item_name" />
+
+		<TextView
+			android:id="@+id/item_hobbies"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:padding="8dp"
+			android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/item_age" />
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
 
