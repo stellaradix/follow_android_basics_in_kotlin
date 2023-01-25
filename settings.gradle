@@ -19,3 +19,4 @@ include ':app00_sample'
 
 include ':app01_happy_birthday'
 include ':app02_dice_roller'
+include ':app03_lemonade'
