@@ -1,6 +1,8 @@
 package com.codelab.wordsapp
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,6 +70,12 @@ class WordAdapter(
 		// Set the text of the WordViewHolder
 		holder.button.text = item
 
+		// Assigns a [OnClickListener] to the button contained in the [ViewHolder]
+		holder.button.setOnClickListener {
+			val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
+			val intent = Intent(Intent.ACTION_VIEW, queryUrl)
+			context.startActivity(intent)
+		}
 	}
 
 	// Setup custom accessibility delegate to set the text read with
