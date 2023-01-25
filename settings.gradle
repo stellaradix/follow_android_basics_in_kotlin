@@ -22,3 +22,4 @@ include ':app02_dice_roller'
 include ':app03_lemonade'
 
 include ':app04_tip_time'
+include ':app05_affirmations'
