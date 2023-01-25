@@ -9,11 +9,6 @@
 		android:theme="@style/Theme.WordsApp">
 
 		<activity
-			android:name=".DetailActivity"
-			android:exported="false"
-			android:parentActivityName=".MainActivity" />
-
-		<activity
 			android:name=".MainActivity"
 			android:exported="true">
 			<intent-filter>
