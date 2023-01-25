@@ -27,6 +27,9 @@ ext {
 	// androidx - Navigation
 	x_navigation = "2.5.3"
 
+	// androidx - Lifecycle
+	x_lifecycle = "2.5.1"
+
 	// Test
 	junit_junit = "4.13.2"
 	mockito = "5.0.0"
