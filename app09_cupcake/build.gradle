@@ -1,0 +1,51 @@
+plugins {
+	id 'com.android.application'
+	id 'org.jetbrains.kotlin.android'
+}
+
+android {
+	namespace 'com.codelab.cupcake'
+	compileSdk compileSdkVer
+
+	defaultConfig {
+		applicationId "com.codelab.cupcake"
+		minSdk minSdkVer
+		targetSdk targetSdkVer
+		versionCode 1
+		versionName "1.0"
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+	}
+
+	compileOptions {
+		sourceCompatibility javaVer
+		targetCompatibility javaVer
+	}
+
+	kotlinOptions {
+		jvmTarget = javaVer
+	}
+}
+
+dependencies {
+	/* androidx.core - kotlin */
+	implementation "androidx.core:core-ktx:$x_core"
+
+	// androidx - UI
+	implementation "com.google.android.material:material:$g_material"
+	implementation "androidx.appcompat:appcompat:$x_appcompat"
+	implementation "androidx.appcompat:appcompat-resources:$x_appcompat"
+	implementation "androidx.constraintlayout:constraintlayout:$x_constraintlayout"
+
+	// Test
+	testImplementation "junit:junit:$junit_junit"
+	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
+	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
+}
