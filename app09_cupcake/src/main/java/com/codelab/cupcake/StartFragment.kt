@@ -4,14 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.codelab.cupcake.databinding.FragmentStartBinding
+import com.codelab.cupcake.model.OrderViewModel
 
 /**
  * This is the first screen of the Cupcake app. The user can choose how many cupcakes to order.
  */
 class StartFragment : Fragment() {
+
+	// Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
+	private val sharedViewModel: OrderViewModel by activityViewModels()
 
 	// Binding object instance corresponding to the fragment_start.xml layout
 	// This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
@@ -30,19 +35,23 @@ class StartFragment : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		binding?.apply {
-			// Set up the button click listeners
-			orderOneCupcake.setOnClickListener { orderCupcake(1) }
-			orderSixCupcakes.setOnClickListener { orderCupcake(6) }
-			orderTwelveCupcakes.setOnClickListener { orderCupcake(12) }
-		}
+		binding?.startFragment = this
 	}
 
 	/**
 	 * Start an order with the desired quantity of cupcakes and navigate to the next screen.
 	 */
 	fun orderCupcake(quantity: Int) {
-		Toast.makeText(activity, "Ordered $quantity cupcake(s)", Toast.LENGTH_SHORT).show()
+		// Update the view model with the quantity
+		sharedViewModel.setQuantity(quantity)
+
+		// If no flavor is set in the view model yet, select vanilla as default flavor
+		if (sharedViewModel.hasNoFlavorSet()) {
+			sharedViewModel.setFlavor(getString(R.string.vanilla))
+		}
+
+		// Navigate to the next destination to select the flavor of the cupcakes
+		findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
 	}
 
 	/**
