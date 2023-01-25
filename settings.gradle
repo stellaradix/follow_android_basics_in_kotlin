@@ -26,3 +26,4 @@ include ':app05_affirmations'
 include ':app06_dogglers'
 
 include ':app07_words_app'
+include ':app08_unscramble'
