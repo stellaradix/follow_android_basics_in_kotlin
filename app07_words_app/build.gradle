@@ -56,6 +56,9 @@ dependencies {
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
+	debugImplementation "androidx.fragment:fragment-testing:$x_fragment"
+	androidTestImplementation "androidx.navigation:navigation-testing:$x_navigation"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
+	androidTestImplementation "androidx.test.espresso:espresso-contrib:$x_test_espresso"
 }
