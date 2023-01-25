@@ -24,3 +24,5 @@ include ':app03_lemonade'
 include ':app04_tip_time'
 include ':app05_affirmations'
 include ':app06_dogglers'
+
+include ':app07_words_app'
