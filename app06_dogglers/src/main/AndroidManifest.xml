@@ -9,6 +9,21 @@
 		android:theme="@style/Theme.Dogglers">
 
 		<activity
+			android:name=".VerticalListActivity"
+			android:exported="false"
+			android:parentActivityName=".MainActivity" />
+
+		<activity
+			android:name=".HorizontalListActivity"
+			android:exported="false"
+			android:parentActivityName=".MainActivity" />
+
+		<activity
+			android:name=".GridListActivity"
+			android:exported="false"
+			android:parentActivityName=".MainActivity" />
+
+		<activity
 			android:name=".MainActivity"
 			android:exported="true">
 			<intent-filter>

@@ -32,6 +32,10 @@ android {
 	kotlinOptions {
 		jvmTarget = javaVer
 	}
+
+	buildFeatures {
+		viewBinding true
+	}
 }
 
 dependencies {
@@ -46,6 +50,8 @@ dependencies {
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
+	debugImplementation "androidx.fragment:fragment-testing:1.6.0-alpha04"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
+	androidTestImplementation "androidx.test.espresso:espresso-contrib:$x_test_espresso"
 }
