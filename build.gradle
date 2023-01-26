@@ -41,4 +41,8 @@ ext {
 
 	// github.com/coil-kt/coil
 	io_coil = "2.2.2"
+
+	// github.com/square
+	square_retrofit = "2.9.0"
+	square_moshi = "1.14.0"
 }
