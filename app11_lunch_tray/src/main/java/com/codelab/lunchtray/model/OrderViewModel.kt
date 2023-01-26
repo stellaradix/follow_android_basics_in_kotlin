@@ -6,6 +6,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.codelab.lunchtray.data.DataSource
 import java.text.NumberFormat
+import java.util.*
 
 class OrderViewModel : ViewModel() {
 
@@ -35,87 +36,111 @@ class OrderViewModel : ViewModel() {
 	// Subtotal for the order
 	private val _subtotal = MutableLiveData(0.0)
 	val subtotal: LiveData<String> = Transformations.map(_subtotal) {
-		NumberFormat.getCurrencyInstance().format(it)
+		NumberFormat.getCurrencyInstance(Locale.US).format(it)
 	}
 
 	// Total cost of the order
 	private val _total = MutableLiveData(0.0)
 	val total: LiveData<String> = Transformations.map(_total) {
-		NumberFormat.getCurrencyInstance().format(it)
+		NumberFormat.getCurrencyInstance(Locale.US).format(it)
 	}
 
 	// Tax for the order
 	private val _tax = MutableLiveData(0.0)
 	val tax: LiveData<String> = Transformations.map(_tax) {
-		NumberFormat.getCurrencyInstance().format(it)
+		NumberFormat.getCurrencyInstance(Locale.US).format(it)
 	}
 
 	/**
 	 * Set the entree for the order.
 	 */
 	fun setEntree(entree: String) {
-		// TODO: if _entree.value is not null, set the previous entree price to the current
-		//  entree price.
+		// if _entree.value is not null, set the previous entree price to the current entree price.
+		previousEntreePrice = _entree.value?.price ?: 0.0
 
-		// TODO: if _subtotal.value is not null subtract the previous entree price from the current
-		//  subtotal value. This ensures that we only charge for the currently selected entree.
+		// if _subtotal.value is not null subtract the previous entree price from the current subtotal value.
+		// This ensures that we only charge for the currently selected entree.
+		_subtotal.value = _subtotal.value?.minus(previousEntreePrice)
 
-		// TODO: set the current entree value to the menu item corresponding to the passed in string
-		// TODO: update the subtotal to reflect the price of the selected entree.
+		// set the current entree value to the menu item corresponding to the passed in string
+		_entree.value = menuItems[entree]
+
+		// update the subtotal to reflect the price of the selected entree.
+		updateSubtotal(_entree.value?.price ?: 0.0)
 	}
 
 	/**
 	 * Set the side for the order.
 	 */
 	fun setSide(side: String) {
-		// TODO: if _side.value is not null, set the previous side price to the current side price.
+		// if _side.value is not null, set the previous side price to the current side price.
+		previousSidePrice = _side.value?.price ?: 0.0
 
-		// TODO: if _subtotal.value is not null subtract the previous side price from the current
-		//  subtotal value. This ensures that we only charge for the currently selected side.
+		// if _subtotal.value is not null subtract the previous side price from the current subtotal value.
+		// This ensures that we only charge for the currently selected side.
+		_subtotal.value = _subtotal.value?.minus(previousSidePrice)
 
-		// TODO: set the current side value to the menu item corresponding to the passed in string
-		// TODO: update the subtotal to reflect the price of the selected side.
+		// set the current side value to the menu item corresponding to the passed in string
+		_side.value = menuItems[side]
+
+		// update the subtotal to reflect the price of the selected side.
+		updateSubtotal(_side.value?.price ?: 0.0)
 	}
 
 	/**
 	 * Set the accompaniment for the order.
 	 */
 	fun setAccompaniment(accompaniment: String) {
-		// TODO: if _accompaniment.value is not null, set the previous accompaniment price to the
-		//  current accompaniment price.
+		// if _accompaniment.value is not null, set the previous accompaniment price to the current accompaniment price.
+		previousAccompanimentPrice = _accompaniment.value?.price ?: 0.0
 
-		// TODO: if _accompaniment.value is not null subtract the previous accompaniment price from
-		//  the current subtotal value. This ensures that we only charge for the currently selected
-		//  accompaniment.
+		// if _accompaniment.value is not null subtract the previous accompaniment price from the current subtotal value.
+		// This ensures that we only charge for the currently selected accompaniment.
+		_subtotal.value = _subtotal.value?.minus(previousAccompanimentPrice)
 
-		// TODO: set the current accompaniment value to the menu item corresponding to the passed in
-		//  string
-		// TODO: update the subtotal to reflect the price of the selected accompaniment.
+		// set the current accompaniment value to the menu item corresponding to the passed in string
+		_accompaniment.value = menuItems[accompaniment]
+
+		// update the subtotal to reflect the price of the selected accompaniment.
+		updateSubtotal(_accompaniment.value?.price ?: 0.0)
 	}
 
 	/**
 	 * Update subtotal value.
 	 */
 	private fun updateSubtotal(itemPrice: Double) {
-		// TODO: if _subtotal.value is not null, update it to reflect the price of the recently
-		//  added item.
-		//  Otherwise, set _subtotal.value to equal the price of the item.
+		// if _subtotal.value is not null, update it to reflect the price of the recently added item.
+		// Otherwise, set _subtotal.value to equal the price of the item.
+		_subtotal.value = (_subtotal.value ?: 0.0).plus(itemPrice)
 
-		// TODO: calculate the tax and resulting total
+		// calculate the tax and resulting total
+		calculateTaxAndTotal()
 	}
 
 	/**
 	 * Calculate tax and update total.
 	 */
 	fun calculateTaxAndTotal() {
-		// TODO: set _tax.value based on the subtotal and the tax rate.
-		// TODO: set the total based on the subtotal and _tax.value.
+		// set _tax.value based on the subtotal and the tax rate.
+		_tax.value = (_subtotal.value ?: 0.0).times(taxRate)
+
+		// set the total based on the subtotal and _tax.value.
+		_total.value = (_subtotal.value ?: 0.0).plus(_tax.value ?: 0.0)
 	}
 
 	/**
 	 * Reset all values pertaining to the order.
 	 */
 	fun resetOrder() {
-		// TODO: Reset all values associated with an order
+		// Reset all values associated with an order
+		_entree.value = null
+		_side.value = null
+		_accompaniment.value = null
+
+		_subtotal.value = 0.0
+	}
+
+	init {
+		resetOrder()
 	}
 }
