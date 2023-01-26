@@ -30,3 +30,5 @@ include ':app08_unscramble'
 include ':app09_cupcake'
 include ':app10_sports'
 include ':app11_lunch_tray'
+
+include ':app12_mars_photos'
