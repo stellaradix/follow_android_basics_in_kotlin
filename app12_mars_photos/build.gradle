@@ -58,7 +58,7 @@ dependencies {
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
 
-	// Retrofit
-	implementation "com.squareup.retrofit2:retrofit:$square_retrofit"
-	implementation "com.squareup.retrofit2:converter-scalars:$square_retrofit"
+	// Retrofit with Moshi Converter
+	implementation "com.squareup.retrofit2:converter-moshi:$square_retrofit"
+	implementation "com.squareup.moshi:moshi-kotlin:$square_moshi"
 }
