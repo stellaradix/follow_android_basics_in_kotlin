@@ -32,6 +32,12 @@ ext {
 	x_arch = "2.1.0"
 	x_lifecycle = "2.5.1"
 
+	// androidx - Data
+	x_room = "2.5.0"
+
+	// github.com/Kotlin/kotlinx.coroutines
+	k_coroutines = "1.6.4"
+
 	// Test
 	junit_junit = "4.13.2"
 	mockito = "5.0.0"
