@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.slidingpanelayout.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/sliding_pane_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context=".SportsListFragment">
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view"
-		android:layout_width="match_parent"
+		android:layout_width="550dp"
 		android:layout_height="match_parent"
 		android:clipToPadding="false"
 		android:padding="8dp"
 		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-</FrameLayout>
+	<!-- The second child becomes the right (content) pane. In this
+         example, android:layout_weight is used to expand this detail pane
+         to consume leftover available space when the
+         the entire window is wide enough to fit both the left and right pane.-->
+
+	<androidx.fragment.app.FragmentContainerView
+		android:id="@+id/detail_container"
+		android:name="com.codelab.sports.NewsDetailsFragment"
+		android:layout_width="300dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1" />
+
+</androidx.slidingpanelayout.widget.SlidingPaneLayout>
