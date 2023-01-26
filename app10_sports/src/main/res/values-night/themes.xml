@@ -14,4 +14,19 @@
 		<item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 		<!-- Customize your theme here. -->
 	</style>
+
+	<style name="Theme.Sports.NoActionBar" parent="Theme.Sports">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+	</style>
+
+	<style name="Theme.Sports.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+	<style name="Theme.Sports.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+	<style name="SportsDetailText" parent="TextAppearance.AppCompat.Subhead" />
+
+	<style name="SportsBody" parent="TextAppearance.MaterialComponents.Body1" />
+
+	<style name="SportsTitle" parent="TextAppearance.AppCompat.Headline" />
 </resources>

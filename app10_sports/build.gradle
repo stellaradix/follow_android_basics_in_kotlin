@@ -1,6 +1,7 @@
 plugins {
 	id 'com.android.application'
 	id 'org.jetbrains.kotlin.android'
+	id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -32,6 +33,10 @@ android {
 	kotlinOptions {
 		jvmTarget = javaVer
 	}
+
+	buildFeatures {
+		viewBinding true
+	}
 }
 
 dependencies {
@@ -43,9 +48,17 @@ dependencies {
 	implementation "androidx.appcompat:appcompat:$x_appcompat"
 	implementation "androidx.appcompat:appcompat-resources:$x_appcompat"
 	implementation "androidx.constraintlayout:constraintlayout:$x_constraintlayout"
+	implementation "androidx.slidingpanelayout:slidingpanelayout:$x_slidingpanelayout"
+
+	// androidx - Navigation
+	implementation "androidx.navigation:navigation-fragment-ktx:$x_navigation"
+	implementation "androidx.navigation:navigation-ui-ktx:$x_navigation"
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
+
+	// Coil
+	implementation "io.coil-kt:coil:$io_coil"
 }
