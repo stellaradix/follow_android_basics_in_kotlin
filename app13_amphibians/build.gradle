@@ -1,6 +1,7 @@
 plugins {
 	id 'com.android.application'
 	id 'org.jetbrains.kotlin.android'
+	id 'kotlin-kapt'
 }
 
 android {
@@ -32,6 +33,11 @@ android {
 	kotlinOptions {
 		jvmTarget = javaVer
 	}
+
+	buildFeatures {
+		viewBinding true
+		dataBinding true
+	}
 }
 
 dependencies {
@@ -44,8 +50,19 @@ dependencies {
 	implementation "androidx.appcompat:appcompat-resources:$x_appcompat"
 	implementation "androidx.constraintlayout:constraintlayout:$x_constraintlayout"
 
+	// androidx - Navigation
+	implementation "androidx.navigation:navigation-fragment-ktx:$x_navigation"
+	implementation "androidx.navigation:navigation-ui-ktx:$x_navigation"
+
 	// Test
 	testImplementation "junit:junit:$junit_junit"
+	debugImplementation "androidx.fragment:fragment-testing:$x_fragment"
+	androidTestImplementation "androidx.navigation:navigation-testing:$x_navigation"
+	androidTestImplementation "androidx.test:core-ktx:$x_test_core"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
+
+	// Retrofit with Moshi Converter
+	implementation "com.squareup.retrofit2:converter-moshi:$square_retrofit"
+	implementation "com.squareup.moshi:moshi-kotlin:$square_moshi"
 }
