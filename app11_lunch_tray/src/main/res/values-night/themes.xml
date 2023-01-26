@@ -13,5 +13,8 @@
 		<!-- Status bar color. -->
 		<item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 		<!-- Customize your theme here. -->
+
+		<!-- Text appearance style. -->
+		<item name="textAppearanceSubtitle1">@style/TextAppearance.LunchTray.Subtitle1</item>
 	</style>
 </resources>
