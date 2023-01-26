@@ -23,6 +23,7 @@ ext {
 	x_appcompat = "1.6.0"
 	x_constraintlayout = "2.1.4"
 	x_fragment = "1.6.0-alpha04"
+	x_slidingpanelayout = "1.2.0"
 
 	// androidx - Navigation
 	x_navigation = "2.5.3"
@@ -37,4 +38,7 @@ ext {
 	x_test_core = "1.5.0"
 	x_test_espresso = "3.5.1"
 	x_test_ext_junit = "1.1.5"
+
+	// github.com/coil-kt/coil
+	io_coil = "2.2.2"
 }
