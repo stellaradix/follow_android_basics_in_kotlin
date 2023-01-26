@@ -60,6 +60,7 @@ dependencies {
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
+	testImplementation "androidx.arch.core:core-testing:$x_arch"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
 }
