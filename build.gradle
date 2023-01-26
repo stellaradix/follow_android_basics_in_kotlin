@@ -19,7 +19,7 @@ ext {
 	x_core = "1.9.0"
 
 	// androidx - UI
-	g_material = "1.7.0"
+	g_material = "1.8.0"
 	x_appcompat = "1.6.0"
 	x_constraintlayout = "2.1.4"
 	x_fragment = "1.6.0-alpha04"
