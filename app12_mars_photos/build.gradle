@@ -61,4 +61,7 @@ dependencies {
 	// Retrofit with Moshi Converter
 	implementation "com.squareup.retrofit2:converter-moshi:$square_retrofit"
 	implementation "com.squareup.moshi:moshi-kotlin:$square_moshi"
+
+	// Coil
+	implementation "io.coil-kt:coil:$io_coil"
 }
