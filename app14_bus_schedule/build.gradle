@@ -54,6 +54,17 @@ dependencies {
 	implementation "androidx.navigation:navigation-fragment-ktx:$x_navigation"
 	implementation "androidx.navigation:navigation-ui-ktx:$x_navigation"
 
+	// androidx - Lifecycle
+	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$x_lifecycle"
+
+	// androidx - Data
+	kapt "androidx.room:room-compiler:$x_room"
+	implementation "androidx.room:room-runtime:$x_room"
+	implementation "androidx.room:room-ktx:$x_room"
+
+	// github.com/Kotlin/kotlinx.coroutines
+	implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$k_coroutines"
+
 	// Test
 	testImplementation "junit:junit:$junit_junit"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
