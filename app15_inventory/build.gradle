@@ -1,6 +1,8 @@
 plugins {
 	id 'com.android.application'
 	id 'org.jetbrains.kotlin.android'
+	id 'kotlin-kapt'
+	id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -32,6 +34,10 @@ android {
 	kotlinOptions {
 		jvmTarget = javaVer
 	}
+
+	buildFeatures {
+		viewBinding true
+	}
 }
 
 dependencies {
@@ -43,6 +49,19 @@ dependencies {
 	implementation "androidx.appcompat:appcompat:$x_appcompat"
 	implementation "androidx.appcompat:appcompat-resources:$x_appcompat"
 	implementation "androidx.constraintlayout:constraintlayout:$x_constraintlayout"
+
+	// androidx - Navigation
+	implementation "androidx.navigation:navigation-fragment-ktx:$x_navigation"
+	implementation "androidx.navigation:navigation-ui-ktx:$x_navigation"
+
+	// androidx - Lifecycle
+	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$x_lifecycle"
+	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$x_lifecycle"
+
+	// androidx - Data
+	kapt "androidx.room:room-compiler:$x_room"
+	implementation "androidx.room:room-runtime:$x_room"
+	implementation "androidx.room:room-ktx:$x_room"
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
