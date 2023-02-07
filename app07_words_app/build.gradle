@@ -54,6 +54,12 @@ dependencies {
 	implementation "androidx.navigation:navigation-fragment-ktx:$x_navigation"
 	implementation "androidx.navigation:navigation-ui-ktx:$x_navigation"
 
+	// androidx - Lifecycle
+	implementation "androidx.lifecycle:lifecycle-livedata-ktx:$x_lifecycle"
+
+	// androidx - Data
+	implementation "androidx.datastore:datastore-preferences:$x_datastore"
+
 	// Test
 	testImplementation "junit:junit:$junit_junit"
 	debugImplementation "androidx.fragment:fragment-testing:$x_fragment"
