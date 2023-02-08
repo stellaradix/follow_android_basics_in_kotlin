@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.codelab.forage.BaseApplication
 import com.codelab.forage.R
 import com.codelab.forage.databinding.FragmentAddForageableBinding
 import com.codelab.forage.model.Forageable
 import com.codelab.forage.ui.viewmodel.ForageableViewModel
+import com.codelab.forage.ui.viewmodel.ForageableViewModelFactory
 
 /**
  * A fragment to enter data for a new [Forageable] or edit data for an existing [Forageable].
@@ -29,9 +31,13 @@ class AddForageableFragment : Fragment() {
 	// This property is only valid between onCreateView and onDestroyView.
 	private val binding get() = _binding!!
 
-	// TODO: Refactor the creation of the view model to take an instance of ForageableViewModelFactory.
-	//  The factory should take an instance of the Database retrieved from BaseApplication
-	private val viewModel: ForageableViewModel by activityViewModels()
+	// Refactor the creation of the view model to take an instance of ForageableViewModelFactory.
+	// The factory should take an instance of the Database retrieved from BaseApplication
+	private val viewModel: ForageableViewModel by activityViewModels() {
+		ForageableViewModelFactory(
+			(activity?.application as BaseApplication).database.forageableDao()
+		)
+	}
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
@@ -48,8 +54,12 @@ class AddForageableFragment : Fragment() {
 		val id = navigationArgs.id
 		if (id > 0) {
 
-			// TODO: Observe a Forageable that is retrieved by id, set the forageable variable,
-			//  and call the bindForageable method
+			// Observe a Forageable that is retrieved by id, set the forageable variable,
+			// and call the bindForageable method
+			viewModel.retrieveForageable(id).observe(viewLifecycleOwner) { entity ->
+				forageable = entity
+				bindForageable(forageable)
+			}
 
 			binding.deleteBtn.visibility = View.VISIBLE
 			binding.deleteBtn.setOnClickListener {
