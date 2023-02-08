@@ -38,3 +38,5 @@ include ':app14_bus_schedule'
 include ':app15_inventory'
 include ':app16_dev_byte_viewer'
 include ':app17_forage'
+
+include ':app18_blur'
