@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-	id 'com.android.application' version '7.4.1' apply false
-	id 'com.android.library' version '7.4.1' apply false
+	id 'com.android.application' version '7.4.2' apply false
+	id 'com.android.library' version '7.4.2' apply false
 	id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
 	id 'androidx.navigation.safeargs.kotlin' version '2.5.3' apply false
 }
@@ -16,42 +16,42 @@ ext {
 	javaVer = JavaVersion.VERSION_11
 
 	// androidx.core
-	x_core = "1.9.0"
+	x_core = "1.9.+"
 
 	// androidx - UI
-	g_material = "1.8.0"
-	x_appcompat = "1.6.0"
-	x_constraintlayout = "2.1.4"
+	g_material = "1.8.+"
+	x_appcompat = "1.6.+"
+	x_constraintlayout = "2.1.+"
 	x_fragment = "1.6.0-alpha04"
-	x_slidingpanelayout = "1.2.0"
+	x_slidingpanelayout = "1.2.+"
 
 	// androidx - Navigation
-	x_navigation = "2.5.3"
+	x_navigation = "2.5.+"
 
 	// androidx - Lifecycle
-	x_arch = "2.1.0"
-	x_lifecycle = "2.5.1"
+	x_arch = "2.1.+"
+	x_lifecycle = "2.5.+"
 
 	// androidx - Data
-	x_room = "2.5.0"
-	x_datastore = "1.0.0"
+	x_room = "2.5.+"
+	x_datastore = "1.0.+"
 
 	// github.com/Kotlin/kotlinx.coroutines
-	k_coroutines = "1.6.4"
+	k_coroutines = "1.6.+"
 
 	// Test
-	junit_junit = "4.13.2"
-	mockito = "5.0.0"
-	x_test_core = "1.5.0"
-	x_test_espresso = "3.5.1"
-	x_test_ext_junit = "1.1.5"
-	x_test_orchestrator = "1.4.2"
-	x_test_runner = "1.5.2"
+	junit_junit = "4.13.+"
+	mockito = "5.0.+"
+	x_test_core = "1.5.+"
+	x_test_espresso = "3.5.+"
+	x_test_ext_junit = "1.1.+"
+	x_test_orchestrator = "1.4.+"
+	x_test_runner = "1.5.+"
 
 	// github.com/coil-kt/coil
-	io_coil = "2.2.2"
+	io_coil = "2.2.+"
 
 	// github.com/square
-	square_retrofit = "2.9.0"
-	square_moshi = "1.14.0"
+	square_retrofit = "2.9.+"
+	square_moshi = "1.14.+"
 }
