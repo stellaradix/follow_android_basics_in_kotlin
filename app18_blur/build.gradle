@@ -1,6 +1,7 @@
 plugins {
 	id 'com.android.application'
 	id 'org.jetbrains.kotlin.android'
+	id 'kotlin-kapt'
 }
 
 android {
@@ -13,6 +14,9 @@ android {
 		targetSdk targetSdkVer
 		versionCode 1
 		versionName "1.0"
+
+		renderscriptTargetApi 18
+		renderscriptSupportModeEnabled true
 
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 	}
@@ -32,6 +36,10 @@ android {
 	kotlinOptions {
 		jvmTarget = javaVer
 	}
+
+	buildFeatures {
+		viewBinding true
+	}
 }
 
 dependencies {
@@ -42,10 +50,25 @@ dependencies {
 	implementation "com.google.android.material:material:$g_material"
 	implementation "androidx.appcompat:appcompat:$x_appcompat"
 	implementation "androidx.appcompat:appcompat-resources:$x_appcompat"
+
+	def x_activity = "1.6.1"
+	implementation "androidx.activity:activity-ktx:$x_activity"
 	implementation "androidx.constraintlayout:constraintlayout:$x_constraintlayout"
+
+	// androidx - Lifecycle
+	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$x_lifecycle"
+
+	// androidx - Data
+	def x_work = "2.7.1"
+	implementation "androidx.work:work-runtime-ktx:$x_work"
 
 	// Test
 	testImplementation "junit:junit:$junit_junit"
 	androidTestImplementation "androidx.test.ext:junit:$x_test_ext_junit"
 	androidTestImplementation "androidx.test.espresso:espresso-core:$x_test_espresso"
+
+	// github.com/bumptech/glide
+	def bumptech_glide = "4.14.2"
+	implementation "com.github.bumptech.glide:glide:$bumptech_glide"
+	kapt "com.github.bumptech.glide:compiler:$bumptech_glide"
 }
